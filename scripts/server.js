@@ -37,7 +37,6 @@ app.get("/scrape/soianet", async (req, res) => {
     const browser = await puppeteer.launch({
       headless,
       args: ["--no-sandbox", "--disable-setuid-sandbox"],
-      executablePath: "/usr/bin/chromium-browser",
     });
     const data = await runSoianet(browser, {
       url,
