@@ -9,7 +9,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node scripts/run.js",
-    "serve": "node scripts/server.js"
+    "serve": "node scripts/server.js",
+    "postinstall": "npx puppeteer browsers install chrome"
   },
   "repository": {
     "type": "git",
