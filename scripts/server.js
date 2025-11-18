@@ -2,9 +2,6 @@
 const express = require("express");
 const puppeteer = require("puppeteer");
 const { runSoianet } = require("../src/scrapers/soianet");
-const browserFetcher = puppeteer.createBrowserFetcher();
-const revisionInfo = browserFetcher.revisionInfo("chrome");
-const executablePath = revisionInfo.executablePath;
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -40,7 +37,7 @@ app.get("/scrape/soianet", async (req, res) => {
     const browser = await puppeteer.launch({
       headless,
       args: ["--no-sandbox", "--disable-setuid-sandbox"],
-      executablePath,
+      executablePath: "/usr/bin/chromium-browser",
     });
     const data = await runSoianet(browser, {
       url,
