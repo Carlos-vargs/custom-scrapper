@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/Carlos-vargs/custom-scrapper#readme",
   "dependencies": {
+    "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "puppeteer": "^24.30.0"
   }

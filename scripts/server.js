@@ -1,10 +1,13 @@
 "use strict";
+require("dotenv").config();
 const express = require("express");
 const puppeteer = require("puppeteer");
 const { runSoianet } = require("../src/scrapers/soianet");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+// Determine Puppeteer executable path from env
+const executablePath = process.env.PUPPETEER_EXECUTABLE_PATH || null;
 
 app.get("/healthz", (_req, res) => res.json({ status: "ok" }));
 
@@ -37,6 +40,7 @@ app.get("/scrape/soianet", async (req, res) => {
     const browser = await puppeteer.launch({
       headless,
       args: ["--no-sandbox", "--disable-setuid-sandbox"],
+      executablePath: executablePath,
     });
     const data = await runSoianet(browser, {
       url,
