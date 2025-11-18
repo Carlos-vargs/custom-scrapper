@@ -4,6 +4,9 @@ const puppeteer = require("puppeteer");
 const fs = require("fs");
 const path = require("path");
 const { runSoianet } = require("../src/scrapers/soianet");
+const browserFetcher = puppeteer.createBrowserFetcher();
+const revisionInfo = browserFetcher.revisionInfo("chrome");
+const executablePath = revisionInfo.executablePath;
 
 const url = process.argv[2] || process.env.TARGET_URL || "https://example.com";
 const headless = process.env.HEADLESS !== "false";
@@ -34,6 +37,7 @@ const timeout = Number(process.env.TIMEOUT || 60000);
     const browser2 = await puppeteer.launch({
       headless,
       args: ["--no-sandbox", "--disable-setuid-sandbox"],
+      executablePath,
     });
     await runSoianet(browser2, {
       url,
