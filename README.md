@@ -126,6 +126,30 @@ Nota: Los encabezados se toman del primer renglón de la tabla; pueden variar.
 - Dependencias del sistema en Linux: instala librerías y fuentes de Chromium (ver Requisitos).
 - Tabla vacía: revisa filtros (patente/documento/año/aduana) y que existan resultados.
 
+## API HTTP
+
+Arranca el servidor:
+```bash
+npm run serve
+# o con puerto custom
+PORT=3001 npm run serve
+```
+
+Endpoint:
+- GET /scrape/soianet
+- Query params:
+  - url: URL completa de la página de consulta (requerido)
+  - patente, documento, aduanaTexto (o aduanatexto), anio (requeridos)
+  - headless=true|false (opcional, default true)
+  - waitUntil, timeout (opcionales)
+
+Ejemplo:
+```bash
+curl "http://localhost:3000/scrape/soianet?url=https://aplicacionesc.mat.sat.gob.mx/SOIANET/oia_consultarap_cep.aspx&patente=3711&documento=5004755&aduanaTexto=NOGALES,%20SON.&anio=2025&headless=false"
+```
+
+Respuesta: JSON con { meta, data } y además se guarda archivo en data/processed/.
+
 ## Notas
 - data/raw y data/processed están en .gitignore para evitar subir datos sensibles/voluminosos.
 - Este proyecto es educativo; respeta términos de uso del sitio y límites legales.
