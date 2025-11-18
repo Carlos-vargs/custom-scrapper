@@ -1,0 +1,28 @@
+{
+  "name": "custom-scrapper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node scripts/run.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Carlos-vargs/custom-scrapper.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Carlos-vargs/custom-scrapper/issues"
+  },
+  "homepage": "https://github.com/Carlos-vargs/custom-scrapper#readme",
+  "dependencies": {
+    "puppeteer": "^24.30.0"
+  }
+}

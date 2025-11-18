@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+
+# Environment
+.env
+.env.*
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build & coverage & cache
+dist/
+build/
+coverage/
+.cache/
+tmp/
+.tmp/
+
+# Data outputs
+data/raw/
+data/processed/
+data/**/*.cache
+data/**/*.tmp
+
+# Puppeteer
+.local-chromium/
+chrome-data/
+chrome-profile/
+user-data/
+screenshots/
+
+# OS / Editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
